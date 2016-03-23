@@ -12,7 +12,9 @@ var currentDay = function (){
 	var n = weekday[d.getDay()];
 	return n;	
 };
-document.write("Today is: " + currentDay() + "<br>");
+var dayOutput = document.createElement('p');
+dayOutput.textContent = "Today is: " + currentDay();
+document.body.appendChild(dayOutput);
 
 var writeCurrentTime = (function (){
 	var t = new Date();
@@ -27,5 +29,8 @@ var writeCurrentTime = (function (){
 		hours -= 12;
 		meridiem = "PM";
 	}
-	document.write("Current Time is " + hours + " " + meridiem + " : " + minutes + " : " + seconds + "<br>");
+	var writeTime = document.createElement('p');
+	writeTime.textContent = "Current Time is " + hours + " " + meridiem + " : " + minutes + " : " + seconds;
+	document.body.appendChild(writeTime);
+
 })();
