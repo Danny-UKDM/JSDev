@@ -1,4 +1,3 @@
-document.body.insertAdjacentHTML( 'afterbegin', '<h1>Challenge 1</h1>' );
 var currentDay = function (){
 	var d = new Date();
 	var weekday = new Array(7);
@@ -32,6 +31,5 @@ var t = currentTime();
 var writeTime = document.createElement('p');
 writeTime.textContent = "Current Time is " + t.hours+ " " + t.meridiem + " : " + t.minutes + " : " + t.seconds;
 document.body.appendChild(writeTime);
-
 
 
