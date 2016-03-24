@@ -9,14 +9,14 @@ var currentDay = function (){
 	weekday[4] = "Thursday";
 	weekday[5] = "Friday";
 	weekday[6] = "Saturday";
-	var n = weekday[d.getDay()];
-	return n;	
+	var dayResult = weekday[d.getDay()];
+	return dayResult;	
 };
-var dayOutput = document.createElement('p');
-dayOutput.textContent = "Today is: " + currentDay();
-document.body.appendChild(dayOutput);
+var writeDay = document.createElement('p');
+writeDay.textContent = "Today is: " + currentDay();
+document.body.appendChild(writeDay);
 
-var writeCurrentTime = (function (){
+var currentTime = function (){
 	var t = new Date();
 	var hours = t.getHours();
 	var minutes = t.getMinutes();
@@ -28,9 +28,11 @@ var writeCurrentTime = (function (){
 	} else {
 		hours -= 12;
 		meridiem = "PM";
-	}
-	var writeTime = document.createElement('p');
-	writeTime.textContent = "Current Time is " + hours + " " + meridiem + " : " + minutes + " : " + seconds;
-	document.body.appendChild(writeTime);
-
-})();
+	}	
+	var timeResult = {hours: hours, minutes: minutes, seconds: seconds, meridiem: meridiem};
+	return timeResult;
+};
+var t = currentTime();
+var writeTime = document.createElement('p');
+writeTime.textContent = "Current Time is " + t.hours+ " " + t.meridiem + " : " + t.minutes + " : " + t.seconds;
+document.body.appendChild(writeTime);
