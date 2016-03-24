@@ -22,13 +22,9 @@ var currentTime = function (){
 	var minutes = t.getMinutes();
 	var seconds = t.getSeconds();
 	var meridiem = "";
+	
+	hours < 12 ? meridiem = "AM" : (hours === 12 ? meridiem = "PM" : hours -= 12, meridiem = "PM"); 
 
-	if (hours < 12) {		
-		meridiem = "AM";
-	} else {
-		hours -= 12;
-		meridiem = "PM";
-	}	
 	var timeResult = {hours: hours, minutes: minutes, seconds: seconds, meridiem: meridiem};
 	return timeResult;
 };
@@ -36,3 +32,6 @@ var t = currentTime();
 var writeTime = document.createElement('p');
 writeTime.textContent = "Current Time is " + t.hours+ " " + t.meridiem + " : " + t.minutes + " : " + t.seconds;
 document.body.appendChild(writeTime);
+
+
+
