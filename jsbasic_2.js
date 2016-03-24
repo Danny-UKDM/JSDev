@@ -1,0 +1,4 @@
+function printCurrentPage() {
+	window.print();
+}
+
